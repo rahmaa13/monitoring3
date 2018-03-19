@@ -20,9 +20,16 @@ class User extends Seeder
               'created_at'      => \Carbon\Carbon::now('Asia/Jakarta')
             ],
             [
-              'name'  => 'Kasubag',
+              'name'  => 'Kasubag1',
               'email' => 'kasubag@kasubag.com',
               'password' => bcrypt('kasubag1'),
+              'akses' => 'Kasubag',
+              'created_at'      => \Carbon\Carbon::now('Asia/Jakarta')
+            ],
+            [
+              'name'  => 'Kasubag2',
+              'email' => 'kasubag2@kasubag.com',
+              'password' => bcrypt('kasubag2'),
               'akses' => 'Kasubag',
               'created_at'      => \Carbon\Carbon::now('Asia/Jakarta')
             ],

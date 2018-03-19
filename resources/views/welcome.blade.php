@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="{{asset('css/morris.css')}}">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+<style type="text/css">
+  .center {
+    text-align: center;
+  }
+</style>
 <body>
   <div class="content-wrapper">
     <section class="content-header">
@@ -51,10 +56,9 @@
         </div>
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>10<sup style="font-size: 25px;">%</sup> </h3>
+             <h3>{{ number_format($presentase, 2) }}<sup style="font-size: 25px;">%</sup> </h3>
               <p>Persentase Penyelesaian</p>
             </div>
             <div class="icon">
@@ -85,8 +89,7 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>10</h3>
-
+              <h3>{{$selesaiproses}}</h3>
               <p>Ppbj Terselesaikan</p>
             </div>
             <div class="icon">
@@ -102,22 +105,6 @@
       </div>
       <!-- data ppbj baru dan user baru -->
       <div class="row">
-        <div class="col-md-12">
-          <div class="box box-info">
-            <div class="box-header with-border">
-              <h3 class="box-title">Ppbj Chart</h3>
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-                </button>
-              </div>
-            </div>
-            <div class="box-body chart-responsive">
-              <div class="chart" id="line-chart" style="height: 300px;"></div>
-            </div>
-          </div>
-        </div>
 
         <div class="col-md-8">
           <div class="box box-info">
@@ -136,12 +123,12 @@
                 <table id="example" class="table table-bordered table-hover" role="grid" aria-describedby="example1_info" data>
                   <thead>
                     <tr>
-                      <th>No. Ppbj</th>
-                      <th>Jenis Pengadaan</th>
-                      <th>Tgl RegistrasiUmum</th>
-                      <th>Tgl Permintaan</th>
-                      <th>Tgl Dibutuhkan</th>
-                      <th>Proses</th>
+                      <th class="center">No. Ppbj</th>
+                      <th class="center">Jenis Pengadaan</th>
+                      <th class="center">Tgl RegistrasiUmum</th>
+                      <th class="center">Tgl Permintaan</th>
+                      <th class="center">Tgl Dibutuhkan</th>
+                      <th class="center">Proses</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -152,18 +139,18 @@
 
                     ?>
                     <tr>
-                      <td>{{$ppbj->no_ppbj}}</td>
-                      <td>{{$ppbj->id_pengadaan}}</td>
-                      <td>{{$ppbj->tgl_regis_umum}}</td>
-                      <td>{{$ppbj->tgl_permintaan_ppbj}}</td>
-                      <td>{{$ppbj->tgl_dibutuhkan_ppbj}}</td>
+                      <td class="center">{{$ppbj->no_ppbj}}</td>
+                      <td class="center">{{$ppbj->id_pengadaan}}</td>
+                      <td class="center">{{$ppbj->tgl_regis_umum}}</td>
+                      <td class="center">{{$ppbj->tgl_permintaan_ppbj}}</td>
+                      <td class="center">{{$ppbj->tgl_dibutuhkan_ppbj}}</td>
                       <td>
                         @if($pegawai != "" && $penyelesaian != "")
-                    <span class="label label-success">Proses Selesai</span>
+                    <center><span class="label label-success">Proses Selesai&nbsp;<i class="fa fa-check"></i></span></center>
                     @elseif($pegawai == "")
-                    <span class="label label-danger">Belum ada Pemroses</span>
+                    <center><span class="label label-danger">Belum ada Pemroses&nbsp;<i class="fa fa-close"></i></span></center>
                     @elseif ($pegawai != "")
-                    <span class="label label-info">Dalam Proses</span>
+                    <center><span class="label label-info">Dalam Proses&nbsp;<i class="fa fa-refresh"></i></span></center>
                     @endif
                       </td>
                     </tr>
