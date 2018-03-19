@@ -48,6 +48,10 @@
                                                 <th class="center">Penugasan</th>
                                             </tr>
                                         </thead>
+<<<<<<< HEAD
+=======
+                                        @if(Auth::user() && Auth::user()->name == 'Sri Adityawati')
+>>>>>>> 5aada3e2c8c541700eaef31447baf8ca6979bf33
                                         <tbody>
                                             @foreach($receiveallPpbj as $key)
                                             <tr role="row" class="odd">
@@ -55,6 +59,10 @@
                                         $unitkerja = \App\unitkerja::where('id_unit', '=', $key->id_unit)->value('aa');
                                         $pegawai   = \App\pegawai::where('id_pegawai', '=', $key->id_pegawai)->value('namapegawai');
                                         $cekproses = \App\prosespengadaan::where('id_ppbj', '=', $key->id)->value('selesaikon');
+<<<<<<< HEAD
+=======
+                                        $cekunit = \App\unitkerja::where('id_unit', '=', $key->id_unit)->value('unit_kerja');
+>>>>>>> 5aada3e2c8c541700eaef31447baf8ca6979bf33
                                     ?>
                                                     <td class="sorting_1">{{$key->id}}</td>
                                                     <!-- {{ $loop->iteration }} -->
@@ -142,6 +150,12 @@
 
                                             @endforeach
                                         </tbody>
+<<<<<<< HEAD
+=======
+                                        @elseif(Auth::user() && Auth::user()->name == 'Pak Sugiarjo')
+                                        <h3>ini pak sugiarjo</h3>
+                                        @endif
+>>>>>>> 5aada3e2c8c541700eaef31447baf8ca6979bf33
                                     </table>
                                 </div>
                             </div>
