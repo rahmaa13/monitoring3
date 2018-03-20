@@ -26,7 +26,7 @@ class PenugasanController extends Controller
     {
         $data['ppbjassignmentEdit'] = pbbj::find($id);
         $data['unitkerja']          = unitkerja::get();
-        $data['cekpegawai']         = pbbj::get();
+        $data['cekpegawai']         = prosespengadaan::get();
         $data['pegawai']            = pegawai::get();
         $data['pengadaan']          = pengadaan::get();
         $idproses                   = prosespengadaan::where('id_ppbj', '=', $id)->value('id');

@@ -38,7 +38,7 @@
                                             <th class="center">Jabatan</th>
                                             <th class="center">No. Telepon</th>
                                             @if(Auth::user() && Auth::user()->akses == 'Admin')
-                                            <th>Ubah Data</th>
+                                            <th class="center">Ubah Data</th>
                                             @else
                                             <!-- Ini kosong jika bukan admin -->
                                             @endif
@@ -55,7 +55,7 @@
                                                 <td class="center">{{ $jabatan }}</td>
                                                 <td class="center">{{$key->notelp}}</td>
                                                 @if(Auth::user() && Auth::user()->akses == 'Admin')
-                                                <td><a href="{{route('editPegawai', [$key->id_pegawai])}}"><i class="fa fa-edit" aria-hidden="true"> </i> Ubah Data</a></td>
+                                                <td class="center"><a href="{{route('editPegawai', [$key->id_pegawai])}}"><i class="fa fa-edit" aria-hidden="true"> </i> Ubah Data</a></td>
                                                 @else
                                                 <!-- Anda bukan admin -->
                                                 @endif

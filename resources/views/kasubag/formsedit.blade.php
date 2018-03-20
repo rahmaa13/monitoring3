@@ -168,17 +168,15 @@
                                         </div>
                                         @foreach($cekpegawai as $cek)
                                         <?php 
-                  $cekPegawai = \App\pegawai::where('id_pegawai', '=', $cek->id_pegawai)->value('namapegawai');
-                  ?>
-                                            @endforeach @if($cekPegawai != "")
-                                            <input type="text" name="id_pegawai" class="form-control" value="{{$cekPegawai}}" readonly> @else
-                                            <select name="id_pegawai" class="form-control select2">
+                                         $cekPegawai = \App\pegawai::where('id_pegawai', '=', $cek->id_pegawai)->value('namapegawai');
+                                        ?>
+                                        @endforeach 
+                                        <select name="id_pegawai" class="form-control select2">
                                                 @foreach($pegawai as $key)
                                                 <option value="{{$key->id_pegawai}}" {{$ppbjassignmentEdit->id_pegawai == $key->id_pegawai ? 'selected' : null}}> {{$key->namapegawai}}
                                                 </option>
                                                 @endforeach
                                             </select>
-                                            @endif
                                     </div>
                                 </div>
                             </div>
