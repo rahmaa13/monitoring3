@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
-
+ 
 <head>
 </head>
 <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datepicker.min.css')}}">
-
+ 
 <body class="hold-transition skin-blue sidebar-mini" background="github.png">
     <div class="content-wrapper">
         <div class="container-fluid spark-screen">
@@ -157,7 +157,7 @@
                                     </table>
                                 </div>
                             </div>
-
+ 
                             <!-- Penugasan dari Kasubag Ke Pegawai Utk Memonitoring ke Kepala Divisi -->
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Pemekerja</label>
@@ -167,16 +167,18 @@
                                             <i class="fa fa-user"></i>
                                         </div>
                                         @foreach($cekpegawai as $cek)
-                                        <?php 
-                                         $cekPegawai = \App\pegawai::where('id_pegawai', '=', $cek->id_pegawai)->value('namapegawai');
-                                        ?>
-                                        @endforeach 
-                                        <select name="id_pegawai" class="form-control select2">
+                                        <?php
+                  $cekPegawai = \App\pegawai::where('id_pegawai', '=', $cek->id_pegawai)->value('namapegawai');
+                  ?>
+                                            @endforeach @if($cekPegawai != "")
+                                            <input type="text" name="id_pegawai" class="form-control" value="{{$cekPegawai}}" readonly> @else
+                                            <select name="id_pegawai" class="form-control select2">
                                                 @foreach($pegawai as $key)
                                                 <option value="{{$key->id_pegawai}}" {{$ppbjassignmentEdit->id_pegawai == $key->id_pegawai ? 'selected' : null}}> {{$key->namapegawai}}
                                                 </option>
                                                 @endforeach
                                             </select>
+                                            @endif
                                     </div>
                                 </div>
                             </div>
@@ -272,7 +274,7 @@
                 $('tbody').html(tag);
                 subtotal();
             });
-
+ 
             function subtotal() {
                 $('.qty, .harga').on('input', function() {
                     var row = $('tbody tr').length,

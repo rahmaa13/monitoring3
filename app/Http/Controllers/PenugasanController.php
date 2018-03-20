@@ -17,6 +17,8 @@ class PenugasanController extends Controller
     public function receivePpbj()
     {
         $data['receiveallPpbj']  = pbbj::orderBy('created_at', 'DESC')->paginate(10);
+        $value = "Kantor Cabang";
+        $datas['cek'] = unitkerja::where('unit_kerja', $value)->count();
         $data['prosespengadaan'] = prosespengadaan::get();
         $data['unitkerja']       = unitkerja::get();
         return view('kasubag.all')->with($data);

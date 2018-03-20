@@ -9,4 +9,10 @@ class pbbj extends Model
     public function Barang() {
     	return $this->hasMany('App\barang', 'id', 'id');
     }
+
+    protected $table = 'pbbjs';
+
+    public function unitkerja() {
+    	return $this->hasMany('App\unitkerja', 'id');
+    }
 }
